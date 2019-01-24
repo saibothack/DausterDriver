@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:DausterDriver.Views"
+             x:Class="DausterDriver.Views.MasterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="#2E2E2E">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Image Source="{Binding imageSorceBackgrond}" Aspect="AspectFill" />
+                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <controls:CircleImage BorderColor="White" BorderThickness="2" Source="{Binding imageSorceProfiler}" Aspect="AspectFill" WidthRequest="85" HeightRequest="85" />
+                        <Label Text="{Binding nameCurrentUser, Mode=TwoWay}" TextColor="White" FontSize="Large" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Margin="20,20,20,0" Grid.Row="1" Spacing="15">
+                    <local:NavigationItem Text="Inicio" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="1"/>
+                    <local:NavigationItem Text="Mis viajes" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="2" />
+                    <ContentView HeightRequest="1" BackgroundColor="Gray" />
+                    <local:NavigationItem Text="Mi perfil" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="3" />
+                    <local:NavigationItem Text="Datos Facturación" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="4" />
+                    <ContentView HeightRequest="1" BackgroundColor="Gray" />
+                    <local:NavigationItem Text="Ayuda" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="5" />
+                    <local:NavigationItem Text="Cerrar sesión" Icon="fas fa-map-marker-alt" Command="{Binding NavigationCommand}" CommandParameter="6" />
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
